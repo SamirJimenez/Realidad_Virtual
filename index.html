@@ -13,46 +13,37 @@
       <a-entity camera look-controls></a-entity>
     </a-entity>
 
-    <!-- Esfera 1 (base) -->
-    <a-sphere position="3 0.25 0" radius="1" color="#E3FEFF" shadow></a-sphere>
+    <!-- Base (ligeramente más grande y un poco más alta) -->
+    <a-sphere position="3 0.30 0" radius="1.05" color="#E3FEFF" shadow></a-sphere>
 
-    <!-- Esfera 2 (torso) -->
-    <a-sphere position="3 1.775 0" radius="0.75" color="#E3FEFF" shadow></a-sphere>
+    <!-- Torso (un poco más grande y subido) -->
+    <a-sphere position="3 1.95 0" radius="0.82" color="#E3FEFF" shadow></a-sphere>
 
-    <!-- Esfera 3 (cabeza) -->
-    <a-sphere position="3 2.875 0" radius="0.5" color="#E3FEFF" shadow></a-sphere>
+    <!-- Cabeza (ligeramente más grande y subidita) -->
+    <a-sphere position="3 3.05 0" radius="0.58" color="#E3FEFF" shadow></a-sphere>
 
-    <!-- Brazos (solo cilindros, sin ramitas) -->
-    <a-cylinder position="3 1.7 -0.8" rotation="30 0 0" radius="0.1" height="1.2" color="#CCBA97" shadow></a-cylinder>
-    <a-cylinder position="3 1.7 0.8" rotation="-30 0 0" radius="0.1" height="1.2" color="#CCBA97" shadow></a-cylinder>
+    <!-- Brazos (sin ramitas extra) -->
+    <a-cylinder position="3 2.00 -0.85" rotation="25 0 0" radius="0.10" height="1.25" color="#CCBA97" shadow></a-cylinder>
+    <a-cylinder position="3 2.00 0.85"  rotation="-25 0 0" radius="0.10" height="1.25" color="#CCBA97" shadow></a-cylinder>
 
-    <!-- OJOS (carbón) - alineados con la nariz mirando hacia -X -->
-    <a-sphere position="2.6 3.0 0.18" radius="0.08" color="#2E2E2E" shadow></a-sphere>
-    <a-sphere position="2.6 3.0 -0.18" radius="0.08" color="#2E2E2E" shadow></a-sphere>
+    <!-- OJOS (carbón), alineados a la nariz mirando hacia -X -->
+    <a-sphere position="2.58 3.18 0.18" radius="0.08" color="#2E2E2E" shadow></a-sphere>
+    <a-sphere position="2.58 3.18 -0.18" radius="0.08" color="#2E2E2E" shadow></a-sphere>
 
-    <!-- Boca opcional (si no la quieres, borra estas líneas) -->
-    <!--
-    <a-sphere position="2.62 2.90 0.20" radius="0.04" color="#2E2E2E" shadow></a-sphere>
-    <a-sphere position="2.62 2.88 0.10" radius="0.04" color="#2E2E2E" shadow></a-sphere>
-    <a-sphere position="2.62 2.87 0.00" radius="0.04" color="#2E2E2E" shadow></a-sphere>
-    <a-sphere position="2.62 2.88 -0.10" radius="0.04" color="#2E2E2E" shadow></a-sphere>
-    <a-sphere position="2.62 2.90 -0.20" radius="0.04" color="#2E2E2E" shadow></a-sphere>
-    -->
+    <!-- Nariz (zanahoria como cilindro, manteniendo estilo original) -->
+    <a-cylinder position="2.45 3.05 0" rotation="0 0 90" radius="0.05" height="1" color="#FFB77D" shadow></a-cylinder>
 
-    <!-- Zanahoria (nariz) -->
-    <a-cylinder position="2.4 2.875 0" rotation="0 0 90" radius="0.05" height="1" color="#FFB77D" shadow></a-cylinder>
+    <!-- Bufanda (misma forma, ajustada a nueva altura) -->
+    <a-cylinder position="3 2.50 0" radius="0.57" height="0.20" color="#FFA500" shadow></a-cylinder>
 
-    <!-- Bufanda -->
-    <a-cylinder position="3 2.425 0" radius="0.55" height="0.2" color="#FFA500" shadow></a-cylinder>
+    <!-- Botones (recentrados para el nuevo torso) -->
+    <a-sphere position="2.35 2.00 0" radius="0.10" color="#2E2E2E" shadow></a-sphere>
+    <a-sphere position="2.35 1.75 0" radius="0.10" color="#2E2E2E" shadow></a-sphere>
+    <a-sphere position="2.35 1.50 0" radius="0.10" color="#2E2E2E" shadow></a-sphere>
 
-    <!-- Botones -->
-    <a-sphere position="2.2 1.775 0" radius="0.1" color="#2E2E2E" shadow></a-sphere>
-    <a-sphere position="2.25 2.05 0" radius="0.1" color="#2E2E2E" shadow></a-sphere>
-    <a-sphere position="2.2 1.5 0" radius="0.1" color="#2E2E2E" shadow></a-sphere>
-
-    <!-- Sombrero -->
-    <a-cylinder position="3 3.3 0" radius="0.45" height="0.15" color="#4CAF50" shadow></a-cylinder>
-    <a-cylinder position="3 3.525 0" radius="0.3" height="0.5" color="#4CAF50" shadow></a-cylinder>
+    <!-- Sombrero (reubicado a la nueva cabeza) -->
+    <a-cylinder position="3 3.68 0" radius="0.47" height="0.15" color="#4CAF50" shadow></a-cylinder>
+    <a-cylinder position="3 3.93 0" radius="0.32" height="0.50" color="#4CAF50" shadow></a-cylinder>
 
     <!-- Piso -->
     <a-plane position="0 0 0" rotation="-90 0 0" width="20" height="20" color="#C8E0E4" shadow></a-plane>
