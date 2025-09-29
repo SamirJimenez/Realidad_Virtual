@@ -1,114 +1,61 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Muñeco de nieve – FIX</title>
-    <meta name="description" content="A-Frame snowman" />
-    <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
-  </head>
-  <body>
-    <a-scene
-      background="color: #CFFCF8"
-      renderer="colorManagement: true; physicallyCorrectLights: true"
-      shadow="type: pcfsoft"
-      fog="type: exponential; color: #CFFCF8; density: 0.035"
-    >
-      <!-- Cámara: un poco más lejos y alta para móvil -->
-      <a-entity position="0 2.2 7" rotation="-5 0 0">
-        <a-entity camera look-controls></a-entity>
-      </a-entity>
+ <head>
+  <meta charset="utf-8">
+  <title>Muñeco de nieve</title>
+  <meta name="description" content="Prueba 1">
+  <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
+ </head>
+ <body>
+  <a-scene background="color: #CFFCF8">
+    <!-- Cámara como antes -->
+    <a-entity position="0 2.5 0" rotation="0 -90 0">
+      <a-entity camera look-controls></a-entity>
+    </a-entity>
 
-      <!-- Luces más suaves -->
-      <a-entity light="type: ambient; intensity: 0.6"></a-entity>
-      <a-entity light="type: directional; intensity: 0.85; castShadow: true" position="2 6 3"></a-entity>
+    <!-- Esfera 1 (base) -->
+    <a-sphere position="3 0.25 0" radius="1" color="#E3FEFF" shadow></a-sphere>
 
-      <!-- Piso -->
-      <a-plane position="0 0 0" rotation="-90 0 0" width="40" height="40" color="#E7F5FA" shadow="receive: true"></a-plane>
+    <!-- Esfera 2 (torso) -->
+    <a-sphere position="3 1.775 0" radius="0.75" color="#E3FEFF" shadow></a-sphere>
 
-      <!-- Grupo muñeco -->
-      <a-entity id="muneco" position="0 0 0">
+    <!-- Esfera 3 (cabeza) -->
+    <a-sphere position="3 2.875 0" radius="0.5" color="#E3FEFF" shadow></a-sphere>
 
-        <!-- Base / torso / cabeza -->
-        <a-sphere position="0 1 0"   radius="1"    color="#E3FEFF" shadow="cast: true; receive: true"></a-sphere>
-        <a-sphere position="0 2.5 0" radius="0.75" color="#E3FEFF" shadow="cast: true; receive: true"></a-sphere>
-        <a-sphere position="0 3.6 0" radius="0.5"  color="#E3FEFF" shadow="cast: true; receive: true"></a-sphere>
+    <!-- Brazos (solo cilindros, sin ramitas) -->
+    <a-cylinder position="3 1.7 -0.8" rotation="30 0 0" radius="0.1" height="1.2" color="#CCBA97" shadow></a-cylinder>
+    <a-cylinder position="3 1.7 0.8" rotation="-30 0 0" radius="0.1" height="1.2" color="#CCBA97" shadow></a-cylinder>
 
-        <!-- Botones (ligeramente al frente +Z) -->
-        <a-sphere position="0 2.35 0.55" radius="0.07" color="#2E2E2E" shadow="cast: true"></a-sphere>
-        <a-sphere position="0 2.52 0.60" radius="0.07" color="#2E2E2E" shadow="cast: true"></a-sphere>
-        <a-sphere position="0 2.15 0.50" radius="0.07" color="#2E2E2E" shadow="cast: true"></a-sphere>
+    <!-- OJOS (carbón) - alineados con la nariz mirando hacia -X -->
+    <a-sphere position="2.6 3.0 0.18" radius="0.08" color="#2E2E2E" shadow></a-sphere>
+    <a-sphere position="2.6 3.0 -0.18" radius="0.08" color="#2E2E2E" shadow></a-sphere>
 
-        <!-- Ojos -->
-        <a-sphere position="-0.12 3.72 0.38" radius="0.06" color="#2E2E2E" shadow="cast: true"></a-sphere>
-        <a-sphere position="0.12 3.72 0.38"  radius="0.06" color="#2E2E2E" shadow="cast: true"></a-sphere>
+    <!-- Boca opcional (si no la quieres, borra estas líneas) -->
+    <!--
+    <a-sphere position="2.62 2.90 0.20" radius="0.04" color="#2E2E2E" shadow></a-sphere>
+    <a-sphere position="2.62 2.88 0.10" radius="0.04" color="#2E2E2E" shadow></a-sphere>
+    <a-sphere position="2.62 2.87 0.00" radius="0.04" color="#2E2E2E" shadow></a-sphere>
+    <a-sphere position="2.62 2.88 -0.10" radius="0.04" color="#2E2E2E" shadow></a-sphere>
+    <a-sphere position="2.62 2.90 -0.20" radius="0.04" color="#2E2E2E" shadow></a-sphere>
+    -->
 
-        <!-- Boca -->
-        <a-sphere position="-0.18 3.55 0.38" radius="0.04" color="#2E2E2E" shadow="cast: true"></a-sphere>
-        <a-sphere position="-0.09 3.50 0.40" radius="0.04" color="#2E2E2E" shadow="cast: true"></a-sphere>
-        <a-sphere position="0 3.48 0.41"     radius="0.04" color="#2E2E2E" shadow="cast: true"></a-sphere>
-        <a-sphere position="0.09 3.50 0.40"  radius="0.04" color="#2E2E2E" shadow="cast: true"></a-sphere>
-        <a-sphere position="0.18 3.55 0.38"  radius="0.04" color="#2E2E2E" shadow="cast: true"></a-sphere>
+    <!-- Zanahoria (nariz) -->
+    <a-cylinder position="2.4 2.875 0" rotation="0 0 90" radius="0.05" height="1" color="#FFB77D" shadow></a-cylinder>
 
-        <!-- Nariz (cono) -->
-        <a-cone position="0 3.60 0.42" rotation="-90 0 0"
-                 radius-bottom="0.07" radius-top="0" height="0.5"
-                 color="#FF8A00" shadow="cast: true"></a-cone>
+    <!-- Bufanda -->
+    <a-cylinder position="3 2.425 0" radius="0.55" height="0.2" color="#FFA500" shadow></a-cylinder>
 
-        <!-- Bufanda -->
-        <a-torus position="0 3.1 0" rotation="90 0 0"
-                 radius="0.55" radius-tubular="0.06"
-                 color="#FFA500" shadow="cast: true; receive: true"></a-torus>
-        <a-box position="-0.12 2.9 0.08" depth="0.04" height="0.45" width="0.12" color="#FF8C00" shadow="cast: true"></a-box>
-        <a-box position="0.08 2.88 0.06"  depth="0.04" height="0.35" width="0.12" color="#FF8C00" shadow="cast: true"></a-box>
+    <!-- Botones -->
+    <a-sphere position="2.2 1.775 0" radius="0.1" color="#2E2E2E" shadow></a-sphere>
+    <a-sphere position="2.25 2.05 0" radius="0.1" color="#2E2E2E" shadow></a-sphere>
+    <a-sphere position="2.2 1.5 0" radius="0.1" color="#2E2E2E" shadow></a-sphere>
 
-        <!-- Sombrero -->
-        <a-cylinder position="0 4.00 0" radius="0.48" height="0.08" color="#2E2E2E" shadow="cast: true"></a-cylinder>
-        <a-cylinder position="0 4.25 0" radius="0.30" height="0.50" color="#2E2E2E" shadow="cast: true"></a-cylinder>
-        <a-cylinder position="0 4.13 0" radius="0.31" height="0.08" color="#E53935" shadow="cast: true"></a-cylinder>
+    <!-- Sombrero -->
+    <a-cylinder position="3 3.3 0" radius="0.45" height="0.15" color="#4CAF50" shadow></a-cylinder>
+    <a-cylinder position="3 3.525 0" radius="0.3" height="0.5" color="#4CAF50" shadow></a-cylinder>
 
-        <!-- BRAZOS ARREGLADOS (horizontales, con ramitas pegadas) -->
-        <!-- Izquierdo -->
-        <a-entity id="brazo-izq" position="-0.85 2.5 0" rotation="0 0 0">
-          <!-- cilindro principal acostado (eje X) -->
-          <a-cylinder rotation="0 0 90" radius="0.05" height="1.4" color="#8B6B4C" shadow="cast: true"></a-cylinder>
-          <!-- ramitas al extremo -->
-          <a-cylinder position="-0.72 0.00 0.15" rotation="0 0 45" radius="0.02" height="0.35" color="#8B6B4C" shadow="cast: true"></a-cylinder>
-          <a-cylinder position="-0.72 0.00 -0.15" rotation="0 0 -45" radius="0.02" height="0.35" color="#8B6B4C" shadow="cast: true"></a-cylinder>
-        </a-entity>
-
-        <!-- Derecho (con saludo al clic) -->
-        <a-entity id="brazo-der" position="0.85 2.5 0">
-          <a-cylinder rotation="0 0 90" radius="0.05" height="1.4" color="#8B6B4C" shadow="cast: true"></a-cylinder>
-          <a-cylinder position="0.72 0.00 0.15" rotation="0 0 -45" radius="0.02" height="0.35" color="#8B6B4C" shadow="cast: true"></a-cylinder>
-          <a-cylinder position="0.72 0.00 -0.15" rotation="0 0 45" radius="0.02" height="0.35" color="#8B6B4C" shadow="cast: true"></a-cylinder>
-
-          <!-- Animación de saludo (usa animation component) -->
-          <a-entity id="rotador" animation__saludo="property: rotation; startEvents: saluda; from: 0 0 0; to: -35 0 0; dir: alternate; dur: 350; loop: 4; easing: easeInOutSine"></a-entity>
-        </a-entity>
-
-        <!-- Aro clickeable (invisible) -->
-        <a-torus id="trigger" position="0 2.5 0" rotation="90 0 0"
-                 radius="0.95" radius-tubular="0.03"
-                 material="opacity: 0.0; transparent: true"></a-torus>
-      </a-entity>
-
-      <!-- Cielo -->
-      <a-sky color="#CFFCF8"></a-sky>
-
-      <!-- Interacción: clic => saludo -->
-      <script>
-        AFRAME.registerComponent('saludo-click', {
-          init: function () {
-            const brazoDer = document.querySelector('#brazo-der');
-            const trigger  = document.querySelector('#trigger');
-            const saluda = () => brazoDer.emit('saluda');
-            trigger.addEventListener('click', saluda);
-            // también si se hace clic en el muñeco
-            document.querySelector('#muneco').addEventListener('click', saluda);
-          }
-        });
-        document.querySelector('a-scene').setAttribute('saludo-click', '');
-      </script>
-    </a-scene>
-  </body>
+    <!-- Piso -->
+    <a-plane position="0 0 0" rotation="-90 0 0" width="20" height="20" color="#C8E0E4" shadow></a-plane>
+  </a-scene>
+ </body>
 </html>
